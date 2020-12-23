@@ -1,0 +1,15 @@
+{
+  "name": "chatqueue",
+  "scripts": {
+    "dev": "vercel dev --listen 3000 & vk-tunnel --insecure=1 --ws-protocol=wss --host=localhost --port=3000",
+    "vercel-dev": "vercel dev"
+  },
+  "author": "PonomareVlad",
+  "license": "ISC",
+  "devDependencies": {
+    "vercel": "^21.0.1"
+  },
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
+}
