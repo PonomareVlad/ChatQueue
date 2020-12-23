@@ -4,6 +4,6 @@ export default async ({query} = req, res) => {
     if (!query.id) return {status: false}
     await connectDB()
     const queue = mongo.db("chat").collection("queue");
-    const status = await queue.findOne(query) || await queue.insertOne(query)
+    const status = await queue.findOne() || await queue.insertOne(query)
     return res.json({status})
 }
