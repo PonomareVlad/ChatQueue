@@ -1,7 +1,6 @@
 {
   "name": "chatqueue",
   "scripts": {
-    "dev": "vercel dev --listen 3000 & vk-tunnel --insecure=1 --ws-protocol=wss --host=localhost --port=3000",
     "vercel-dev": "vercel dev"
   },
   "author": "PonomareVlad",
