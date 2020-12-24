@@ -5,7 +5,7 @@ export default async ({query} = req, res) => {
     await connectDB()
     const rooms = mongo.db("chat").collection("rooms");
     const status = await mongo.db("chat").collection("queue").deleteOne(query);
-    if (await rooms.findOne({id: query.id})) await rooms.updateOne({id: query.id}, {client: query.username});
+    if (await rooms.findOne({id: query.id})) await rooms.updateOne({id: query.id}, {$set: {client: query.username}});
     else await rooms.insertOne({id: query.id, client: query.username});
     return res.json({status})
 }

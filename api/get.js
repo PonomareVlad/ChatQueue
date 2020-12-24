@@ -8,7 +8,7 @@ export default async ({query} = req, res) => {
     const room = await queue.findOne()
     if (room) {
         await queue.deleteOne(room);
-        if (await rooms.findOne({id: room.id})) await rooms.updateOne({id: room.id}, {client: query.username});
+        if (await rooms.findOne({id: room.id})) await rooms.updateOne({id: room.id}, {$set: {client: query.username}});
         else await rooms.insertOne({id: room.id, client: query.username});
     }
     return res.json({room})

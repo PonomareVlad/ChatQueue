@@ -8,7 +8,7 @@ export default async ({query} = req, res) => {
     let status = await queue.findOne();
     if (!status) {
         status = await queue.insertOne(query);
-        if (await rooms.findOne({id: query.id})) await rooms.updateOne({id: query.id}, {host: query.username});
+        if (await rooms.findOne({id: query.id})) await rooms.updateOne({id: query.id}, {$set: {host: query.username}});
         else await rooms.insertOne({id: query.id, host: query.username});
     }
     return res.json({status})
