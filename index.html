@@ -8,6 +8,7 @@
 
         async function init() {
             const data = await fetch('/api/stat').then(_ => _.json());
+            document.title = data.rooms + ' комнат'
             let output = '<table>';
             data.rooms.reverse().forEach(room => output += `<tr><td>${room.id || '—'}</td><td>${room.host || '—'}</td><td>${room.client || '—'}</td></tr>`);
             document.body.innerHTML = output + '</table>';
