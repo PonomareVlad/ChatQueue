@@ -1,4 +1,4 @@
-import connectDB, {client as mongo} from "../db";
+import connectDB, {client as mongo} from "../../db";
 
 export default async ({query} = req, res) => {
     if (!query.id) return res.json({status: false})
